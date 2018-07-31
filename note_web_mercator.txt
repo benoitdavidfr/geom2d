@@ -1,0 +1,14 @@
+Note sur la projection Web Mercator
+Voir:
+http://earth-info.nga.mil/GandG/wgs84/web_mercator/(U)%20NGA_SIG_0011_1.0.0_WEBMERC.pdf
+
+La pyramide Web Mercator est définie de la manière suivante:
+
+Au niveau 0, une seule image 256x256 couvre la Terre considérée comme un carré de côté 2 x PI x a
+où a est le demi-grand axe de l'ellipsoide WGS 84 soit 6 378 137.0 mètres
+
+Au niveau n+1, chaque image du niveau n est remplacée par 4 images du niveau n.
+
+La résolution en mètres à un niveau donné $zoomLevel est fourni par la formule suivante:
+resolution = 2 * PI * a / 256 / pow(2,$zoomLevel)
+

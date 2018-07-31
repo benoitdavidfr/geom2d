@@ -1,0 +1,36 @@
+title: geom2d - fonctions géométriques 2D et 2,5D
+path: /geom2d
+doc: |
+  Ce projet définit les primitives géométriques 2D/2,5D. Il est composé de xx parties:
+  1) définition des structures géométriques simples: Point, BBox, LineString et Polygon ainsi qu'une classe
+    abstraite Geometry
+  2) définition de collections d'objets simples: MultiPoint, MultiLineString, MultiPolygon, MultiGeom et GeomCollection
+  3) définition des classes CoordSys, Lambert93, WebMercator et UTM qui permettent d'effectuer un changement
+    de système de coordonnées uniquement sur l'ellipsoide IAG_GRS_1980
+  Ce projet est en lien avec les projets:
+  - SysCoord qui implémente plus largement les changements de coordonnées,
+  - Ogr2Php qui implémente la lecture de fichiers Ogr
+  - MifMif qui implémente la lecture de fichiers MIF/MIF
+journal: |
+  15/1/2017
+    le tuilage de CLC semble fonctionner
+  25/12/2016
+  - première version par clonage de Ogr2Php
+htmlFiles:
+phpScripts:
+phpIncludes:
+  - /geom2d/geometry.inc.php
+  - /geom2d/point.inc.php
+  - /geom2d/bbox.inc.php
+  - /geom2d/linestring.inc.php
+  - /geom2d/linestrwbr.inc.php
+  - /geom2d/polygon.inc.php
+  - /geom2d/hugepolygon.inc.php
+  - /geom2d/tiledpolyg.inc.php
+  - /geom2d/geomcoll.inc.php
+  - /geom2d/multigeom.inc.php
+  - /geom2d/coordsys1.inc.php
+  - /geom2d/coordsys.inc.php
+  - /geom2d/geom2d.inc.php
+  - /geom2d/drawing.inc.php
+  - /geom2d/svg.inc.php
