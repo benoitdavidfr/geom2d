@@ -1,7 +1,7 @@
 <?php
 /*PhpDoc:
 name:  geom2d.inc.php
-title: geom2d.inc.php - fichier à inclure pour utiliser le module geom2d
+title: geom2d.inc.php - fichier à inclure pour utiliser la bibiothèque geom2d
 includes: [ geometry.inc.php, point.inc.php, bbox.inc.php, linestring.inc.php, polygon.inc.php, hugepolygon.inc.php, tiledpolyg.inc.php, geomcoll.inc.php, multigeom.inc.php, coordsys.inc.php ]
 functions:
 classes:
@@ -11,17 +11,17 @@ journal: |
   25/12/2016:
   - première version - restructuration à partir de ogr2php/geom2d.inc.php
 */
-require_once dirname(__FILE__).'/geometry.inc.php';
-require_once dirname(__FILE__).'/point.inc.php';
-require_once dirname(__FILE__).'/bbox.inc.php';
-require_once dirname(__FILE__).'/linestring.inc.php';
-require_once dirname(__FILE__).'/linestrwbr.inc.php';
-require_once dirname(__FILE__).'/polygon.inc.php';
-require_once dirname(__FILE__).'/hugepolygon.inc.php';
-require_once dirname(__FILE__).'/tiledpolyg.inc.php';
-require_once dirname(__FILE__).'/geomcoll.inc.php';
-require_once dirname(__FILE__).'/multigeom.inc.php';
-require_once dirname(__FILE__).'/coordsys.inc.php';
+require_once __DIR__.'/geometry.inc.php';
+require_once __DIR__.'/point.inc.php';
+require_once __DIR__.'/bbox.inc.php';
+require_once __DIR__.'/linestring.inc.php';
+require_once __DIR__.'/linestrwbr.inc.php';
+require_once __DIR__.'/polygon.inc.php';
+require_once __DIR__.'/hugepolygon.inc.php';
+require_once __DIR__.'/tiledpolyg.inc.php';
+require_once __DIR__.'/geomcoll.inc.php';
+require_once __DIR__.'/multigeom.inc.php';
+require_once __DIR__.'/coordsys.inc.php';
 
 
 

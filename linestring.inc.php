@@ -9,10 +9,11 @@ journal: |
   25/12/2016:
   - première version - clone de ogr2php/geom2d.inc.php
 */
-require_once 'geometry.inc.php';
+require_once __DIR__.'/geometry.inc.php';
+
 /*PhpDoc: classes
 name:  LineString
-title: Class LineString extends Geometry - Définition d'une LineString (OGC)
+title: class LineString extends Geometry - Définition d'une LineString (OGC)
 methods:
 doc: |
   protected $geom; // Pour un LineString: [Point]
@@ -33,8 +34,8 @@ title: __construct($param) - construction à partir d'un WKT ou d'un [Point]
     $this->geom = [];
       $pattern = '!^(LINESTRING\s*)?\(\s*([-\d.e]+)\s+([-\d.e]+)(\s+([-\d.e]+))?\s*,?!i';
     while (preg_match($pattern, $param, $matches)) {
-//      echo "matches="; print_r($matches);
-//      echo "x=$matches[2], y=$matches[3]",(isset($matches[5])?",z=$matches[5]":''),"\n";
+      //echo "matches="; print_r($matches);
+      //echo "x=$matches[2], y=$matches[3]",(isset($matches[5])?",z=$matches[5]":''),"\n";
       if (isset($matches[5]))
         $this->geom[] = new Point(['x'=>$matches[2], 'y'=>$matches[3], 'z'=>$matches[5]]);
       else

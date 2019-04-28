@@ -1,17 +1,54 @@
-title: geom2d - fonctions géométriques 2D et 2,5D
+title: geom2d - bibliothèque de fonctions géométriques 2D et 2,5D (remplacé par geometry)
 path: /geom2d
 doc: |
-  Ce projet définit les primitives géométriques 2D/2,5D. Il est composé de xx parties:
+  Cette bibiothèque définit les primitives géométriques 2D/2,5D.
+  Elle est composés de 3 parties:
   1) définition des structures géométriques simples: Point, BBox, LineString et Polygon ainsi qu'une classe
     abstraite Geometry
   2) définition de collections d'objets simples: MultiPoint, MultiLineString, MultiPolygon, MultiGeom et GeomCollection
   3) définition des classes CoordSys, Lambert93, WebMercator et UTM qui permettent d'effectuer un changement
     de système de coordonnées uniquement sur l'ellipsoide IAG_GRS_1980
-  Ce projet est en lien avec les projets:
+  Cette bibliothèque est en lien avec les projets:
   - SysCoord qui implémente plus largement les changements de coordonnées,
-  - Ogr2Php qui implémente la lecture de fichiers Ogr
   - MifMif qui implémente la lecture de fichiers MIF/MIF
+  
+  La hiérarchie des classes définies est la suivante:
+    - Geometry - Sur-classe abstraite des 3 classes Point, LineString et Polygon
+      +- Point
+      +- LineString
+         +- LineStringWithBR
+      +- Polygon
+         +- HugePolygon
+    - GeomCollection - Liste d'objets d'une des sous-classes de Geometry
+      +- MultiGeom - Liste homogène d'objets Geometry
+         +- MultiPoint
+         +- MultiLineString
+         +- MultiPolygon
+    - BBox - Boite englobante
+
+    - Svg - Dessin SVG
+    - Drawing - Sur-couche de Svg pour dessiner des objets geom2d en Lambert 93
+    - StoredDrawing - sur couche de Drawing permettant de bufferiser les ordres, mode procédural
+    
+    - CoordSys
+      +- Lambert93
+      +- WebMercator
+      +- UTM
+      
+    - Clarke1866
+      + UTM
+      
+    - GridIntersection
+    - ClippedLineString
+    - PolygonTile
+    - TiledPolygon
+    
+  La conception de cette bibliothèque a été influencée par le std WKT.
+  Cette bibliothèque est remplacée par geometry qui définit une hiérarchie de primitives plus cohérente
+  plus cohérente avec GeoJSON.
 journal: |
+  31/7/2018
+    mise en Git
   15/1/2017
     le tuilage de CLC semble fonctionner
   25/12/2016

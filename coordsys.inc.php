@@ -1,7 +1,7 @@
 <?php
 /*PhpDoc:
 name:  coordsys.inc.php
-title: coordsys.inc.php (v2) - changement simpple de système de projection
+title: coordsys.inc.php (v2) - changement simple de système de projection
 classes:
 functions:
 doc: |
@@ -174,7 +174,7 @@ title: static function geo($X, $Y)  - retourne [longitude, latitude] en degrés
                  ))/PI()*180;
     return [ $longitude , $latitude ];
   }
- };
+};
   
 /*PhpDoc: classes
 name:  Class WebMercator extends CoordSys
@@ -253,7 +253,7 @@ name:  proj
 title: function proj($longitude, $latitude)  - prend des degrés et retourne [X, Y] en UTM zone
 */
   function proj($longitude, $latitude) {
-//    echo "lambda0 = ",$this->lambda0()," rad = ",$this->lambda0()/pi()*180," degres\n";
+    //echo "lambda0 = ",$this->lambda0()," rad = ",$this->lambda0()/pi()*180," degres\n";
     $e2 = $this->e2();
     $lambda = $longitude * pi() / 180.0; // longitude en radians
     $phi = $latitude * pi() / 180.0;  // latitude en radians
@@ -265,12 +265,12 @@ title: function proj($longitude, $latitude)  - prend des degrés et retourne [X,
     $M = $this->distanceAlongMeridianFromTheEquatorToLatitude($phi); // echo "M=$M\n"; // (3-21)
     $M0 = $this->distanceAlongMeridianFromTheEquatorToLatitude(0); // echo "M0=$M0\n"; // (3-21)
     $x = (self::k0) * $N * ($A + (1-$T+$C)*pow($A,3)/6 + (5-18*$T+pow($T,2)+72*$C-58*$ep2)*pow($A,5)/120); // (8-9)
-//  echo "x = ",($this->k0)," * $N * ($A + (1-$T+$C)*pow($A,3)/6 + (5-18*$T+pow($T,2)+72*$C-58*$ep2)*pow($A,5)/120)\n";
-//  echo "x = $x\n";
+    //echo "x = ",($this->k0)," * $N * ($A + (1-$T+$C)*pow($A,3)/6 + (5-18*$T+pow($T,2)+72*$C-58*$ep2)*pow($A,5)/120)\n";
+    //echo "x = $x\n";
     $y = (self::k0) * ($M - $M0 + $N * tan($phi) * ($A*$A/2 + (5 - $T + 9*$C +4*$C*$C)
         * pow($A,4)/24 + (61 - 58*$T + $T*$T + 600*$C - 330*$ep2) * pow($A,6)/720));                    // (8-10)
-// echo "y = ($this->k0) * ($M - $M0 + $N * tan($phi) * ($A*$A/2 + (5 - $T + 9*$C +4*$C*$C)
-//          * pow($A,4)/24 + (61 - 58*$T + $T*$T + 600*$C - 330*$ep2) * pow($A,6)/720))\n";
+    //echo "y = ($this->k0) * ($M - $M0 + $N * tan($phi) * ($A*$A/2 + (5 - $T + 9*$C +4*$C*$C)
+    //        * pow($A,4)/24 + (61 - 58*$T + $T*$T + 600*$C - 330*$ep2) * pow($A,6)/720))\n";
     $k = (self::k0) * (1 + (1 + $C)*$A*$A/2 + (5 - 4*$T + 42*$C + 13*$C*$C - 28*$ep2)*pow($A,4)/24
          + (61 - 148*$T +16*$T*$T)*pow($A,6)/720);                                                    // (8-11)
     return [$x + $this->Xs(), $y + $this->Ys()];
